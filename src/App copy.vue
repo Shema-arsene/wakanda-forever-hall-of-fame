@@ -18,12 +18,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- Preloader overlay -->
+  <!-- Pre loader overlay -->
   <motion.main
-    class="absolute inset-0 flex items-center justify-center bg-black text-white p-10 z-50"
-    :initial="{ opacity: 1, y: '0%' }"
-    :animate="progress === 100 ? { y: '-100%' } : {}"
-    :transition="{ duration: 1, ease: 'easeOut' }"
+    class="h-screen w-screen flex items-center justify-center bg-black text-white relative p-10"
+    v-if="!hideMain"
+    :initial="{ y: '0%' }"
+    :animate="progress === 100 && { y: '-100%' }"
+    :transition="{ delay: 1, duration: 1, ease: 'easeOut' }"
   >
     <!-- Background image -->
     <div
@@ -44,17 +45,9 @@ onMounted(() => {
         <p
           class="font-panthera tracking-[0.3em] flex items-start justify-between text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
         >
-          <span class="text-1xl drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
-            >The</span
-          >
-          <span
-            class="text-3xl font-extrabold drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
-            >Hall</span
-          >
-          <span
-            class="text-1xl mb-0 mt-auto drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
-            >of</span
-          >
+          <span class="text-1xl">The</span>
+          <span class="text-3xl font-extrabold">Hall</span>
+          <span class="text-1xl mb-0 mt-auto">of</span>
         </p>
         <h1
           class="text-3xl sm:text-4xl font-extrabold text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"

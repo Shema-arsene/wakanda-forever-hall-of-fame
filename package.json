@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
+    "gsap": "^3.13.0",
     "motion": "^12.23.16",
     "motion-v": "^1.7.1",
     "primeicons": "^7.0.0",
