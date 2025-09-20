@@ -1,8 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { motion } from "motion-v"
-import SpriteLogo from "./assets/images/sprite-logo-white.png"
-import WakandaLogo from "./assets/images/wakanda-forever-logo.png"
+import PartnersLogo from "./components/PartnersLogo.vue"
 
 const progress = ref(0)
 
@@ -21,6 +20,7 @@ onMounted(() => {
   <motion.main
     class="h-screen w-screen flex items-center justify-center bg-black text-white relative p-10"
     v-if="!hideMain"
+    :initial="{ opacity: 1, x: '0%' }"
     :animate="progress === 100 && { opacity: 1, y: '-100%' }"
     :transition="{ delay: 1, duration: 1, ease: 'easeOut' }"
   >
@@ -31,27 +31,7 @@ onMounted(() => {
 
     <div class="relative z-10 flex flex-col items-center space-y-8 text-center">
       <!-- Logos -->
-      <div class="flex items-center justify-center gap-6">
-        <motion.img
-          :src="SpriteLogo"
-          alt="Sprite Logo"
-          class="h-14 sm:h-24 w-24 sm:w-32"
-          :initial="{ opacity: 0, x: -40 }"
-          :animate="{ opacity: 1, x: 0 }"
-          :transition="{ duration: 0.8, ease: 'easeOut' }"
-        />
-        <span class="text-gray-400">
-          <i class="pi pi-times text-xl sm:text-3xl mx-auto"></i>
-        </span>
-        <motion.img
-          :src="WakandaLogo"
-          alt="Wakanda Forever Logo"
-          class="h-14 sm:h-24 w-24 sm:w-32"
-          :initial="{ opacity: 0, x: 40 }"
-          :animate="{ opacity: 1, x: 0 }"
-          :transition="{ duration: 0.8, ease: 'easeOut' }"
-        />
-      </div>
+      <PartnersLogo />
 
       <!-- Title -->
       <motion.div
