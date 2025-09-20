@@ -19,7 +19,7 @@ onMounted(() => {
 
 <template>
   <motion.main
-    class="h-screen w-screen flex items-center justify-center bg-black text-white relative"
+    class="h-screen w-screen flex items-center justify-center bg-black text-white relative p-10"
     v-if="!hideMain"
     :animate="progress === 100 && { opacity: 1, y: '-100%' }"
     :transition="{ delay: 1, duration: 1, ease: 'easeOut' }"
@@ -31,22 +31,22 @@ onMounted(() => {
 
     <div class="relative z-10 flex flex-col items-center space-y-8 text-center">
       <!-- Logos -->
-      <div class="flex items-center space-x-6">
+      <div class="flex items-center justify-center gap-6">
         <motion.img
           :src="SpriteLogo"
           alt="Sprite Logo"
-          class="h-24"
+          class="h-14 sm:h-24 w-24 sm:w-32"
           :initial="{ opacity: 0, x: -40 }"
           :animate="{ opacity: 1, x: 0 }"
           :transition="{ duration: 0.8, ease: 'easeOut' }"
         />
         <span class="text-gray-400">
-          <i class="pi pi-times text-3xl"></i>
+          <i class="pi pi-times text-xl sm:text-3xl mx-auto"></i>
         </span>
         <motion.img
           :src="WakandaLogo"
           alt="Wakanda Forever Logo"
-          class="h-24"
+          class="h-14 sm:h-24 w-24 sm:w-32"
           :initial="{ opacity: 0, x: 40 }"
           :animate="{ opacity: 1, x: 0 }"
           :transition="{ duration: 0.8, ease: 'easeOut' }"
@@ -63,12 +63,12 @@ onMounted(() => {
         <p
           class="font-panthera tracking-[0.3em] flex items-start justify-between text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
         >
-          <span class="text-2xl">The</span>
-          <span class="text-5xl font-extrabold">Hall</span>
-          <span class="text-2xl mb-0 mt-auto">of</span>
+          <span class="text-1xl">The</span>
+          <span class="text-3xl font-extrabold">Hall</span>
+          <span class="text-1xl mb-0 mt-auto">of</span>
         </p>
         <h1
-          class="text-4xl md:text-5xl font-extrabold text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+          class="text-3xl sm:text-4xl font-extrabold text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
         >
           Zero Limits
         </h1>
