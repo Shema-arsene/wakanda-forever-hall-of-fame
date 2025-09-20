@@ -66,22 +66,26 @@ onMounted(() => {
       <!-- Progress Bar -->
       <motion.div
         class="relative w-72 bg-gray-800 rounded-full h-1 shadow-inner mt-5"
-        :initial="{ opacity: 0.5, width: '50%' }"
-        :animate="{ opacity: 1, width: '100%' }"
+        :initial="{ opacity: 0.5 }"
+        :animate="{ opacity: 1 }"
         :transition="{ duration: 1 }"
       >
+        <!-- Progress -->
         <motion.div
           class="h-1 bg-green-300 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
           :initial="{ opacity: 0.5, width: '0%' }"
-          :animate="{ opacity: 1, width: progress + '%' }"
-          :transition="{ duration: 0.6, ease: 'easeOut' }"
+          :animate="{ width: progress + '%' }"
+          :transition="{ duration: 0.25, ease: 'easeOut' }"
         ></motion.div>
+
         <!-- Percentage -->
-        <p
-          class="absolute top-3 -right-5 z-200 text-yellow-100 font-medium text-lg drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+        <motion.p
+          class="absolute top-3 text-yellow-100 font-medium text-lg drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+          :animate="{ left: progress - 2 + '%' }"
+          :transition="{ duration: 0.25, ease: 'easeOut' }"
         >
           {{ progress }}%
-        </p>
+        </motion.p>
       </motion.div>
     </div>
   </motion.main>
