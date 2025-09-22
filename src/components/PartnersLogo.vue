@@ -16,7 +16,7 @@ import WakandaLogo from "../assets/images/wakanda-forever-logo.png"
       :transition="{ duration: 0.8, ease: 'easeOut' }"
     />
     <span class="text-gray-400">
-      <i class="pi pi-times text-xl sm:text-3xl mx-auto"></i>
+      <i class="pi pi-times text-xl sm:text-xl mx-auto"></i>
     </span>
     <motion.img
       :src="WakandaLogo"
