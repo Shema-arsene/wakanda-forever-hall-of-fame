@@ -19,7 +19,10 @@ defineProps({
   >
     <p
       class="tracking-[0.3em] flex items-start justify-between text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
-      :class="isHeroSection === true && 'md:text-4xl justify-center'"
+      :class="isHeroSection ? 'md:text-4xl justify-center' : ''"
+      :initial="{ opacity: 0, y: 0 }"
+      :animate="{ opacity: 0, y: 0 }"
+      :transition="{ duration: 0.8, delay: 0.5, ease: 'easeOut' }"
     >
       <span class="text-1xl drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
         >The</span
@@ -35,10 +38,10 @@ defineProps({
       >
     </p>
     <h1
-      class="zero-limit-text text-3xl sm:text-4xl font-extrabold text-yellow-100 whitespace-nowrap drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+      class="zero-limit-text text-3xl sm:text-4xl text-center font-extrabold text-yellow-100 whitespace-nowrap drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
       :class="
         isHeroSection === true &&
-        'sm:zero-limit-text-hero tracking-[0.5rem] md:tracking-[1.5rem]'
+        'md:zero-limit-text-hero tracking-[0.5rem] md:tracking-[1.5rem]'
       "
     >
       Zero Limits
@@ -58,13 +61,6 @@ defineProps({
 .zero-limit-text-hero {
   font-size: 5rem;
 }
-
-/* @media screen and (max-width: 768px) {
-  .zero-limit-text-hero {
-    font-size: 3rem;
-    color: blueviolet;
-  }
-} */
 
 .hall-text {
   font-family: "Alegreya", serif;
