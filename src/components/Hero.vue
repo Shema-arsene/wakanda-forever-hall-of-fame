@@ -4,6 +4,8 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 import HeroImg from "../assets/images/hero-background.png"
+import PartnersLogo from "./PartnersLogo.vue"
+import Title from "./Title.vue"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -399,10 +401,20 @@ onUnmounted(() => {
 
     <!-- Main Content -->
     <div
-      class="hero-content relative z-10 flex flex-col justify-between h-screen px-8 py-12 max-w-7xl mx-auto"
+      class="hero-content relative z-10 flex flex-col items-center justify-evenly h-screen px-8 py-12 max-w-7xl mx-auto"
     >
+      <!-- Version button -->
+      <button
+        class="lg:absolute top-20 right-20 md:mb-10 w-fit mx-auto flex items-center justify-center px-9 py-5 text-white font-extrabold border-2 border-yellow-100 rounded-tl-md rounded-tr-3xl rounded-bl-3xl rounded-br-md bg-green-900/20 cursor-pointer"
+      >
+        Accessible Version
+        <i class="pi pi-chevron-right text-sm font-extrabold"></i>
+        <i class="pi pi-chevron-right text-xl -ml-1 font-extrabold"></i>
+      </button>
+
       <!-- Logo Section -->
-      <div class="logo-container flex items-center gap-8">
+      <PartnersLogo />
+      <div class="logo-container flex items-center gap-8 hidden">
         <div class="logo-item sprite-logo flex flex-col items-center">
           <div
             class="sprite-circle w-20 h-20 bg-green-400 rounded-full shadow-[0_0_20px_rgba(0,255,65,0.6)] relative"
@@ -439,7 +451,10 @@ onUnmounted(() => {
       </div>
 
       <!-- Title Section -->
-      <div class="title-container text-center" ref="titleContainer">
+      <div class="w-fit mx-auto">
+        <Title :isHeroSection="true" />
+      </div>
+      <div class="title-container text-center hidden" ref="titleContainer">
         <div class="title-text space-y-2">
           <h1
             class="hall-text text-7xl text-green-400 font-black tracking-[0.2em] uppercase leading-tight; text-shadow: 0 0 20px rgba(0, 255, 65, 0.8)"
@@ -471,7 +486,27 @@ onUnmounted(() => {
       </div>
 
       <!-- CTA Section -->
-      <div class="cta-section flex flex-col items-center gap-6 mt-16">
+      <div
+        class="relative w-fit px-24 bg-green-700/20 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] [mask-repeat:no-repeat] [mask-size:100%_100%]"
+      >
+        <!-- Content -->
+        <div
+          class="relative z-10 text-white flex items-center justify-center h-full"
+        >
+          <div
+            class="cta-text flex flex-col items-center gap-1 uppercase md:tracking-widest whitespace-nowrap"
+          >
+            <p class="text-xl sm:text-2xl font-bold text-yellow-100">
+              Explore your new paths.
+            </p>
+            <p class="text-xl sm:text-2xl font-bold text-yellow-100">
+              Find your gift.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section flex flex-col items-center gap-6 mt-16 hidden">
         <div
           class="cta-text text-white text-xl text-center leading-relaxed tracking-wide"
           ref="ctaText"
@@ -506,26 +541,82 @@ onUnmounted(() => {
           Accessible version →
         </a>
       </div>
-    </div>
 
-    <!-- Foreground Decorative Elements -->
-    <div class="decorative-elements absolute inset-0 pointer-events-none">
+      <!-- CTA Button -->
+      <!-- <button
+        class="mx-auto flex items-center justify-center gap-3 px-10 py-6 border-2 border-yellow-100 text-white bg-green-300/50 drop-shadow-[0_0_15px_#22c55eCC]"
+      >
+        <p class="uppercase font-bold text-xl letter-spacing tracking-widest">
+          Enter
+        </p>
+        <div class="flex">
+          <i
+            class="pi pi-arrow-right text-green-500 text-xl font-extrabold drop-shadow-[0_0_15px_#22c55eCC]"
+          ></i>
+          <i
+            class="pi pi-arrow-right text-green-500 text-xl font-extrabold drop-shadow-[0_0_15px_#22c55eCC]"
+          ></i>
+        </div>
+      </button> -->
+
+      <button
+        class="relative w-fit mx-auto flex items-center justify-center px-9 py-5 text-white font-extrabold tracking-[0.3em] border-2 border-green-400 rounded-tl-md rounded-tr-3xl rounded-bl-3xl rounded-br-md bg-green-500/20 hover:bg-green-500/50 transition duration-300 before:content-[''] before:absolute before:inset-0 before:rounded-md before:border-2 before:border-green-500 before:opacity-70 before:blur-md shadow-[0_0_15px_rgba(34,197,94,0.8),inset_0_0_10px_rgba(34,197,94,0.6)] cursor-pointer"
+      >
+        ENTER
+        <i
+          class="pi pi-arrow-right text-green-500 text-lg font-extrabold drop-shadow-[0_0_15px_#ffc55eCC]"
+        ></i>
+        <i
+          class="pi pi-arrow-right text-green-500 text-lg -ml-2 font-extrabold drop-shadow-[0_0_15px_#22c55eCC]"
+        ></i>
+      </button>
+
+      <!-- Sponsors -->
       <div
-        class="plant-left absolute w-32 h-32 bg-green-400/20 rounded-full blur-xl top-[20%] -right-[10%]"
-        ref="plantLeft"
-      ></div>
-      <div
-        class="plant-right absolute w-32 h-32 bg-green-400/20 rounded-full blur-xl top-[60%] -right-[10%]"
-        ref="plantRight"
-      ></div>
-      <div
-        class="urn-center absolute w-24 h-24 bg-black/80 rounded-full bottom-20 left-1/2 -translate-x-1/2"
-        ref="urnCenter"
-      ></div>
+        class="fixed flex items-center justify-between border border-white p-0 text-white text-xs md:text-sm w-[90%] max-w-[350px] md:w-auto"
+        :class="[
+          'left-1/2 -translate-x-1/2 bottom-4',
+          'md:left-auto md:translate-x-0 md:right-4 md:bottom-4',
+        ]"
+      >
+        <!-- Left logo -->
+        <div
+          class="flex flex-col items-center px-4 py-2 m-0 text-center leading-tight border-r border-white"
+        >
+          <img
+            src="../assets/images/sprite-logo-white.png"
+            alt="Sprite Logo"
+            class="h-8 object-contain"
+          />
+        </div>
+
+        <!-- Center logo -->
+        <div
+          class="flex flex-col items-center px-4 py-2 m-0 text-center leading-tight border-r border-white"
+        >
+          <img
+            src="../assets/images/wakanda-forever-logo.png"
+            alt="Wakanda Forever"
+            class="h-8 object-contain"
+          />
+        </div>
+
+        <!-- Right text -->
+        <span class="whitespace-nowrap text-xs font-bold text-gray-300 px-1">
+          Sprite Zero Sugar® | &copy; MARVEL
+        </span>
+      </div>
     </div>
   </section>
 </template>
 
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.cta-text {
+  font-family: "Alegreya", serif;
+}
+</style>
 <!-- <style scoped>
 .hero-section {
   @apply relative w-full min-h-screen overflow-hidden bg-black;
