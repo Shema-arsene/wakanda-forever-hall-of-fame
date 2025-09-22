@@ -18,15 +18,15 @@ defineProps({
     :transition="{ duration: 0.8, delay: 0.3, ease: 'easeOut' }"
   >
     <p
-      class="font-panthera tracking-[0.3em] flex items-start justify-between text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
-      :class="isHeroSection === true && 'text-4xl justify-center'"
+      class="tracking-[0.3em] flex items-start justify-between text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+      :class="isHeroSection === true && 'md:text-4xl justify-center'"
     >
       <span class="text-1xl drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
         >The</span
       >
       <span
         class="hall-text text-3xl font-extrabold drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
-        :class="isHeroSection === true && 'text-9xl'"
+        :class="isHeroSection === true && 'md:text-9xl'"
         >Hall</span
       >
       <span
@@ -35,9 +35,10 @@ defineProps({
       >
     </p>
     <h1
-      class="zero-limit-text text-3xl sm:text-4xl font-extrabold text-yellow-100 drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+      class="zero-limit-text text-3xl sm:text-4xl font-extrabold text-yellow-100 whitespace-nowrap drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]"
       :class="
-        isHeroSection === true && 'zero-limit-text-hero tracking-[1.5rem]'
+        isHeroSection === true &&
+        'sm:zero-limit-text-hero tracking-[0.5rem] md:tracking-[1.5rem]'
       "
     >
       Zero Limits
@@ -57,6 +58,13 @@ defineProps({
 .zero-limit-text-hero {
   font-size: 5rem;
 }
+
+/* @media screen and (max-width: 768px) {
+  .zero-limit-text-hero {
+    font-size: 3rem;
+    color: blueviolet;
+  }
+} */
 
 .hall-text {
   font-family: "Alegreya", serif;
